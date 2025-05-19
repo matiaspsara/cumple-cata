@@ -22,7 +22,7 @@ const GameSelection: React.FC<GameSelectionProps> = ({
       </div>
 
       <div className="dialog-box p-6 mb-8 w-full max-w-xs text-center">
-        <h2 className="text-3xl font-bold text-blue-600">Jugamos?</h2>
+        <h2 className="text-3xl font-bold text-blue-600">¿Jugamos?</h2>
       </div>
 
       <div className="w-full max-w-xs">

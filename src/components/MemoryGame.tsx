@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeftCircle } from 'lucide-react';
 import { useGameContext } from '../contexts/GameContext';
 import Card from './Card';
@@ -14,6 +14,7 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onBackToMenu }) => {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [isChecking, setIsChecking] = useState(false);
   const [hasWon, setHasWon] = useState(false);
+  const winAudioRef = useRef<HTMLAudioElement | null>(null);
   
   // Initialize game
   useEffect(() => {
@@ -36,6 +37,10 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onBackToMenu }) => {
       // Game won
       setTimeout(() => {
         setHasWon(true);
+        if (winAudioRef.current) {
+          winAudioRef.current.currentTime = 0;
+          winAudioRef.current.play();
+        }
       }, 500);
     }
   }, [matchedCards, gameCards]);
@@ -107,6 +112,8 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onBackToMenu }) => {
 
   return (
     <div className="pt-4 min-h-[90vh] flex flex-col">
+      {/* Win sound effect */}
+      <audio ref={winAudioRef} src={import.meta.env.BASE_URL + 'images/win.mp3'} preload="auto" />
       <div className="flex justify-between items-center mb-4">
         <button 
           className="btn-back"
