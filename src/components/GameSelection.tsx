@@ -15,7 +15,7 @@ const GameSelection: React.FC<GameSelectionProps> = ({
       <div className="stitch-bounce mb-4">
         {/* Placeholder for Stitch image */}
         <img 
-          src="/images/lilostitch.png" 
+          src={import.meta.env.BASE_URL + 'images/lilostitch.png'}
           alt="Stitch" 
           className="w-64 h-64 object-contain"
         />

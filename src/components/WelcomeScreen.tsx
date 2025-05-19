@@ -22,7 +22,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ name, onNext }) => {
     <div className={`flex flex-col items-center justify-center min-h-[80vh] transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       <div className="mb-8 stitch-bounce">
         <img 
-          src="/images/stitch.png" 
+          src={import.meta.env.BASE_URL + 'images/stitch.png'}
           alt="Stitch" 
           className="w-64 h-64 object-contain"
         />

@@ -91,7 +91,7 @@ const DressUpGame: React.FC<DressUpGameProps> = ({ onBackToMenu }) => {
           onTouchEnd={() => setIsDragging(false)}
         >
           <img 
-            src="/images/stitch2.png" 
+            src={import.meta.env.BASE_URL + 'images/stitch2.png'}
             alt="Stitch" 
             className="w-full h-full object-contain"
           />
