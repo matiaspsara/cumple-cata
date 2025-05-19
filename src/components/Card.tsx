@@ -23,10 +23,11 @@ const Card: React.FC<CardProps> = ({
     >
       <div className="memory-card-inner h-full w-full">
         <div className="memory-card-front bg-white">
-          {/* This would be an actual image in production */}
-          <div className="w-16 h-16 bg-blue-100 rounded-full overflow-hidden flex items-center justify-center">
-            <span className="text-xs text-center">{id % 6 + 1}</span>
-          </div>
+          <img 
+            src={image}
+            alt={`Card ${id}`}
+            className="w-full h-full object-contain"
+          />
         </div>
         <div className="memory-card-back">
           <Sparkles className="text-white" size={24} />

@@ -94,10 +94,11 @@ const PlacedAccessory: React.FC<PlacedAccessoryProps> = ({
       onTouchEnd={handleTouchEnd}
       onDoubleClick={handleDoubleClick}
     >
-      {/* This would be an actual image in production */}
-      <div className="w-full h-full bg-white rounded-full border-2 border-yellow-400 overflow-hidden flex items-center justify-center">
-        <span className="text-xs text-center">Item</span>
-      </div>
+      <img 
+        src={src}
+        alt="Accessory"
+        className="w-full h-full object-contain"
+      />
     </div>
   );
 };

@@ -121,10 +121,11 @@ const AccessoryItem: React.FC<AccessoryItemProps> = ({ accessory, onDrop }) => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* This would be an actual image in production */}
-      <div className="w-16 h-16 bg-white rounded-lg overflow-hidden flex items-center justify-center">
-        <span className="text-xs text-center">{accessory.name}</span>
-      </div>
+      <img 
+        src={accessory.src}
+        alt={accessory.name}
+        className="w-16 h-16 object-contain"
+      />
     </div>
   );
 };

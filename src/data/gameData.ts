@@ -6,37 +6,37 @@ const accessories: Accessory[] = [
     id: 'hat1',
     name: 'Party Hat',
     type: 'hat',
-    src: '/hat1.png'
+    src: '/images/hat1.png'
   },
   {
     id: 'hat2',
     name: 'Cowboy Hat',
     type: 'hat',
-    src: '/hat2.png'
+    src: '/images/hat2.png'
   },
   {
     id: 'glasses1',
     name: 'Sunglasses',
     type: 'glasses',
-    src: '/glasses1.png'
+    src: '/images/glasses1.png'
   },
   {
     id: 'shirt1',
     name: 'T-Shirt',
     type: 'clothing',
-    src: '/shirt1.png'
+    src: '/images/shirt1.png'
   },
   {
     id: 'costume1',
     name: 'Princess',
     type: 'clothing',
-    src: '/costume1.png'
+    src: '/images/costume1.png'
   },
   {
     id: 'costume2',
     name: 'Superhero',
     type: 'clothing',
-    src: '/costume2.png'
+    src: '/images/costume2.png'
   }
 ];
 
@@ -44,27 +44,27 @@ const accessories: Accessory[] = [
 const cards: Card[] = [
   {
     pairId: 1,
-    image: '/stitch1.png'
+    image: '/images/florcata1.jpeg'
   },
   {
     pairId: 2,
-    image: '/stitch2.png'
+    image: '/images/florcata2.jpeg'
   },
   {
     pairId: 3,
-    image: '/stitch3.png'
+    image: '/images/stitch3.png'
   },
   {
     pairId: 4,
-    image: '/stitch4.png'
+    image: '/images/stitch4.png'
   },
   {
     pairId: 5,
-    image: '/stitch5.png'
+    image: '/images/stitch5.png'
   },
   {
     pairId: 6,
-    image: '/stitch6.png'
+    image: '/images/stitch6.png'
   }
 ];
 

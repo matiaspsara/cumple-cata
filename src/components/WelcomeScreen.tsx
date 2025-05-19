@@ -31,7 +31,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ name, onNext }) => {
       <div className="dialog-box p-6 mb-12 w-full max-w-xs text-center">
         <PartyPopper className="inline-block text-yellow-400 mb-3" size={40} />
         <h1 className="text-3xl font-bold text-blue-600 mb-2">
-          Feliz cumple
+          Feliz Cumple
         </h1>
         <h2 className="text-4xl font-bold text-pink-500 mb-1">{name}!</h2>
       </div>
