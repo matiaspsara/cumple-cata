@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Accessory } from '../types';
 
 interface AccessoryItemProps {
@@ -11,6 +11,20 @@ const AccessoryItem: React.FC<AccessoryItemProps> = ({ accessory, onDrop }) => {
   const dragStartPos = useRef({ x: 0, y: 0 });
   const currentPos = useRef({ x: 0, y: 0 });
   const accessoryRef = useRef<HTMLDivElement>(null);
+  
+  // Prevent scrolling while dragging
+  useEffect(() => {
+    const preventScroll = (e: TouchEvent) => {
+      if (isDragging) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('touchmove', preventScroll, { passive: false });
+    return () => {
+      document.removeEventListener('touchmove', preventScroll);
+    };
+  }, [isDragging]);
   
   // Handle mouse events
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -43,6 +57,7 @@ const AccessoryItem: React.FC<AccessoryItemProps> = ({ accessory, onDrop }) => {
     if (e.touches.length === 1) {
       const touch = e.touches[0];
       startDrag(touch.clientX, touch.clientY);
+      e.preventDefault(); // Prevent any default touch behavior
     }
   };
   
@@ -116,6 +131,7 @@ const AccessoryItem: React.FC<AccessoryItemProps> = ({ accessory, onDrop }) => {
     <div 
       ref={accessoryRef}
       className="accessory bg-gray-100 p-2 rounded-lg shadow flex items-center justify-center h-24"
+      style={{ touchAction: "none" }}
       onMouseDown={handleMouseDown}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}

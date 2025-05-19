@@ -21,22 +21,40 @@ const accessories: Accessory[] = [
     src: '/images/glasses1.png'
   },
   {
-    id: 'shirt1',
-    name: 'T-Shirt',
-    type: 'clothing',
-    src: '/images/shirt1.png'
+    id: 'glasses2',
+    name: 'Sunglasses',
+    type: 'glasses',
+    src: '/images/glasses2.png'
   },
   {
-    id: 'costume1',
-    name: 'Princess',
+    id: 'shorts1',
+    name: 'Short',
     type: 'clothing',
-    src: '/images/costume1.png'
+    src: '/images/shorts1.png'
   },
   {
-    id: 'costume2',
-    name: 'Superhero',
+    id: 'shoeR',
+    name: 'shoeR',
     type: 'clothing',
-    src: '/images/costume2.png'
+    src: '/images/shoeR.png'
+  },
+  {
+    id: 'shoeL',
+    name: 'shoeL',
+    type: 'clothing',
+    src: '/images/shoeL.png'
+  },
+  {
+    id: 'shoe2R',
+    name: 'shoe2R',
+    type: 'clothing',
+    src: '/images/shoe2R.png'
+  },
+  {
+    id: 'shoe2L',
+    name: 'shoe2L',
+    type: 'clothing',
+    src: '/images/shoe2L.png'
   }
 ];
 

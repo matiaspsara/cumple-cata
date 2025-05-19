@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLeftCircle } from 'lucide-react';
 import { useGameContext } from '../contexts/GameContext';
 import { Accessory } from '../types';
@@ -13,8 +13,24 @@ const DressUpGame: React.FC<DressUpGameProps> = ({ onBackToMenu }) => {
   const { accessories } = useGameContext();
   const [placedAccessories, setPlacedAccessories] = useState<Array<{ id: string; x: number; y: number; type: string; src: string }>>([]);
   const stitchRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  // Prevent scrolling while dragging
+  useEffect(() => {
+    const preventScroll = (e: TouchEvent) => {
+      if (isDragging) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('touchmove', preventScroll, { passive: false });
+    return () => {
+      document.removeEventListener('touchmove', preventScroll);
+    };
+  }, [isDragging]);
 
   const handleDrop = (accessory: Accessory, x: number, y: number) => {
+    setIsDragging(false);
     // Calculate position relative to Stitch
     if (stitchRef.current) {
       const stitchRect = stitchRef.current.getBoundingClientRect();
@@ -33,6 +49,7 @@ const DressUpGame: React.FC<DressUpGameProps> = ({ onBackToMenu }) => {
   };
 
   const handleDragPlaced = (id: string, x: number, y: number) => {
+    setIsDragging(true);
     // Update position of placed accessory
     if (stitchRef.current) {
       const stitchRect = stitchRef.current.getBoundingClientRect();
@@ -46,6 +63,7 @@ const DressUpGame: React.FC<DressUpGameProps> = ({ onBackToMenu }) => {
   };
 
   const handleRemove = (id: string) => {
+    setIsDragging(false);
     // Remove accessory on double click/tap
     setPlacedAccessories(placedAccessories.filter(acc => acc.id !== id));
   };
@@ -69,6 +87,8 @@ const DressUpGame: React.FC<DressUpGameProps> = ({ onBackToMenu }) => {
           ref={stitchRef} 
           className="relative w-64 h-64 mb-6 overflow-hidden flex items-center justify-center"
           style={{ touchAction: "none" }}
+          onTouchStart={() => setIsDragging(true)}
+          onTouchEnd={() => setIsDragging(false)}
         >
           <img 
             src="/images/stitch2.png" 
