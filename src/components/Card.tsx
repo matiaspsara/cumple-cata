@@ -26,7 +26,7 @@ const Card: React.FC<CardProps> = ({
           <img 
             src={image}
             alt={`Card ${id}`}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           />
         </div>
         <div className="memory-card-back">

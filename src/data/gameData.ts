@@ -44,11 +44,11 @@ const accessories: Accessory[] = [
 const cards: Card[] = [
   {
     pairId: 1,
-    image: '/images/florcata1.jpeg'
+    image: '/images/florcata1.png'
   },
   {
     pairId: 2,
-    image: '/images/florcata2.jpeg'
+    image: '/images/florcata2.png'
   },
   {
     pairId: 3,
