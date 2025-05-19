@@ -14,13 +14,33 @@ function App() {
   const musicRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    if (musicRef.current) {
-      musicRef.current.volume = 0.15;
-      if (!isMuted) {
-        musicRef.current.play().catch(() => {});
-      } else {
-        musicRef.current.pause();
+    let triedToPlay = false;
+    const tryPlay = () => {
+      if (musicRef.current && !isMuted) {
+        musicRef.current.volume = 0.15;
+        const playPromise = musicRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // If autoplay is blocked, wait for user interaction
+            if (!triedToPlay) {
+              triedToPlay = true;
+              const resumeAudio = () => {
+                musicRef.current?.play();
+                window.removeEventListener('pointerdown', resumeAudio);
+                window.removeEventListener('touchstart', resumeAudio);
+                window.removeEventListener('click', resumeAudio);
+              };
+              window.addEventListener('pointerdown', resumeAudio);
+              window.addEventListener('touchstart', resumeAudio);
+              window.addEventListener('click', resumeAudio);
+            }
+          });
+        }
       }
+    };
+    tryPlay();
+    if (isMuted && musicRef.current) {
+      musicRef.current.pause();
     }
   }, [isMuted]);
 
