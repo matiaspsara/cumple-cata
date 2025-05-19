@@ -58,19 +58,23 @@ const DressUpGame: React.FC<DressUpGameProps> = ({ onBackToMenu }) => {
           onClick={onBackToMenu}
         >
           <ArrowLeftCircle className="inline-block mr-1" size={20} />
-          Back
+          Volver
         </button>
-        <h2 className="text-2xl font-bold text-purple-600">Dress Up Stitch</h2>
+        <h2 className="text-2xl font-bold text-purple-600">¡Vestí a Stitch!</h2>
       </div>
 
       <div className="flex-1 flex flex-col items-center">
         {/* Stitch character with placed accessories */}
         <div 
           ref={stitchRef} 
-          className="relative w-64 h-64 bg-blue-400 rounded-full mb-6 overflow-hidden flex items-center justify-center"
+          className="relative w-64 h-64 mb-6 overflow-hidden flex items-center justify-center"
           style={{ touchAction: "none" }}
         >
-          <span className="text-white text-4xl">Stitch</span>
+          <img 
+            src="/images/stitch2.png" 
+            alt="Stitch" 
+            className="w-full h-full object-contain"
+          />
           
           {/* Placed accessories */}
           {placedAccessories.map(accessory => (
@@ -88,7 +92,7 @@ const DressUpGame: React.FC<DressUpGameProps> = ({ onBackToMenu }) => {
 
         {/* Accessory selection */}
         <div className="bg-white rounded-lg p-4 w-full">
-          <h3 className="text-lg font-bold text-blue-600 mb-3">Accessories</h3>
+          <h3 className="text-lg font-bold text-blue-600 mb-3">Accesorios</h3>
           <div className="grid grid-cols-3 gap-4">
             {accessories.map(accessory => (
               <AccessoryItem

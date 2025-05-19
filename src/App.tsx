@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState('welcome');
-  const [childName] = useState('Emma'); // You can make this configurable
+  const [childName] = useState('Cata'); // You can make this configurable
 
   const navigateTo = (screen: string) => {
     setCurrentScreen(screen);

@@ -113,9 +113,9 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onBackToMenu }) => {
           onClick={onBackToMenu}
         >
           <ArrowLeftCircle className="inline-block mr-1" size={20} />
-          Back
+          Volver
         </button>
-        <h2 className="text-2xl font-bold text-purple-600">Memory Match</h2>
+        <h2 className="text-2xl font-bold text-purple-600">¡Encontrá las parejas!</h2>
       </div>
       
       <div className="flex-1 flex flex-col items-center">
@@ -137,13 +137,13 @@ const MemoryGame: React.FC<MemoryGameProps> = ({ onBackToMenu }) => {
       {hasWon && (
         <div className="win-message">
           <div className="win-message-text">
-            <h2 className="text-3xl font-bold text-purple-600 mb-4">You Win!</h2>
+            <h2 className="text-3xl font-bold text-purple-600 mb-4">Ganaste!</h2>
             <div className="flex space-x-4">
               <button 
                 className="btn-back"
                 onClick={resetGame}
               >
-                Play Again
+                Volver a jugar
               </button>
               <button 
                 className="btn-primary"

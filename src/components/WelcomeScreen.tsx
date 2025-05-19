@@ -21,16 +21,17 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ name, onNext }) => {
   return (
     <div className={`flex flex-col items-center justify-center min-h-[80vh] transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       <div className="mb-8 stitch-bounce">
-        {/* Placeholder for Stitch image - you can replace this with the actual image once available */}
-        <div className="w-64 h-64 bg-blue-400 rounded-full overflow-hidden flex items-center justify-center">
-          <span className="text-white text-4xl">Stitch</span>
-        </div>
+        <img 
+          src="/images/stitch.png" 
+          alt="Stitch" 
+          className="w-64 h-64 object-contain"
+        />
       </div>
 
       <div className="dialog-box p-6 mb-12 w-full max-w-xs text-center">
         <PartyPopper className="inline-block text-yellow-400 mb-3" size={40} />
         <h1 className="text-3xl font-bold text-blue-600 mb-2">
-          Happy Birthday
+          Feliz cumple
         </h1>
         <h2 className="text-4xl font-bold text-pink-500 mb-1">{name}!</h2>
       </div>
@@ -39,7 +40,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ name, onNext }) => {
         className="btn-primary"
         onClick={onNext}
       >
-        Next
+        Siguiente
       </button>
     </div>
   );
